@@ -12,7 +12,7 @@
 - **Compositor:** [picom](https://github.com/yshui/picom)
 - **Notification:** [dunst](https://github.com/dunst-project/dunst)
 
-> For compositor you can use dmenu insteded of rofi
+> For compositor you can use dmenu instead of rofi
 
 ```bash
 # Install the necessary packages
