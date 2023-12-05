@@ -17,12 +17,27 @@ bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true 
 
-bspc config focused_border_color "#ffd8d0"
-bspc config normal_border_color "#584141"
+bspc config focused_border_color "#406ed6"
+bspc config normal_border_color "#19202c"
 
-# AutoStart Applications
+#+-----------------------------------+
+#|       AutoStart Applications      |
+#+-----------------------------------+
 
-feh --bg-fill $HOME/Pictures/kessoku-band-sakuraTree.png &
-picom --config $HOME/.config/picom/picom.conf &
-dunst -config $HOME/.config/dunst/dunstrc &
-$HOME/.config/polybar/launch.sh &
+#Wallpaper
+#feh --bg-fill $HOME/Pictures/wallpapers/kessoku-band-sakuraTree.png &
+#feh --bg-fill $HOME/Pictures/wallpapers/focalors_walking_water.png &
+feh --bg-fill $HOME/Pictures/wallpapers/ryo_noMoney.png &
+
+#Start compositor
+picom --experimental-backends --config $HOME/.config/picom/picom.conf &
+
+#Start notification
+dunst -config $HOME/.config/dunst/focalors/dunstrc &
+
+#Polybar
+#$HOME/.config/polybar/bocchi_bar/launch.sh &
+$HOME/.config/polybar/focalors_bar/launch.sh &
+
+#Key map
+setxkbmap us &

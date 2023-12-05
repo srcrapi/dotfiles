@@ -127,23 +127,43 @@ super + {Left,Down,Up,Right}
 super + q
 	firefox
 
+# Code
+
+super + v
+  code
+
 # File Manager
 
 super + e
 	pcmanfm
+
+# Discord
+
+super + shift + e
+	discord
 
 # Keys Language
 
 super + ctrl + shift {u,p}
 	setxkbmap {us,pt}
 
+# Emoji
+
+super + shift + p
+  rofi -show emoji
+
+# wifi menu
+
+super + shift + m
+  wifimenu
+
 # Print
 
 Print
-    scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/screenshots && mv $f ~/screenshots && xclip -selection clipboard -t image/png -i ~/screenshots/`ls -1 -t ~/screenshots | head -1`'
+    scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`'
 
 super + Print
-    scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/screenshots && mv $f ~/screenshots && xclip -selection clipboard -t image/png -i ~/screenshots/`ls -1 -t ~/screenshots | head -1`'
+    scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`'
 
 # Reboot & Poweroff
 
@@ -161,15 +181,15 @@ XF86AudioLowerVolume
 XF86AudioMute
 	changevolume mute
 
-# lockscreen
-
-super + x
-	betterlockscreen -l
 
 # brightness keys
 
 XF86MonBrightnessUp
-	changebrightness up
+	xrandr --output eDP-1 --brightness $(echo "$(xrandr --verbose | grep -m 1 -i brightness | cut -f2- -d ' ') + 0.1" | bc)
 
 XF86MonBrightnessDown
-	changebrightness down
+	xrandr --output eDP-1 --brightness $(echo "$(xrandr --verbose | grep -m 1 -i brightness | cut -f2- -d ' ') - 0.1" | bc)
+
+# lockscreen
+alt + shift + x
+    betterlockscreen -l dim
