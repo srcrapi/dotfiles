@@ -1,15 +1,21 @@
-# My personal bspwm desktop
+<div align="center">
+    <h1>Hyprland dotfiles</h1>
+</div>
+
+<div align="center">
+
+![](https://img.shields.io/github/repo-size/srcrapi/dotfiles?style=for-the-badge&logo=aiqfome&label=size&labelColor=323439&color=2960ec)
+
+</div>
 
 ## Components
 
-- **WM:** [bspwm](https://github.com/baskerville/bspwm)
-- **OS:** [Arch Linux](https://archlinux.org)
+- **WM:** [hyprland](https://github.com/baskerville/bspwm)
+- **OS:** [endeavour](https://archlinux.org)
 - **Terminal:** [kitty](https://sw.kovidgoyal.net/kitty/)
 - **Shell:** [zsh](https://wiki.archlinux.org/title/Zsh)
-- **File Manager:** [pcmanfm](https://wiki.archlinux.org/title/PCManFM)
+- **File Manager:** [nautilus](https://wiki.archlinux.org/title/PCManFM)
 - **Application Launcher:** [rofi](https://github.com/davatorium/rofi)
-- **Bar:** [polybar](https://github.com/polybar/polybar)
-- **Compositor:** [picom](https://github.com/yshui/picom)
-- **Notification:** [dunst](https://github.com/dunst-project/dunst)
-
-> For application launcher you can use dmenu instead of rofi
+- **Bar:** [waybar](https://github.com/polybar/polybar)
+- **Compositor:** [hyprland](https://github.com/yshui/picom)
+- **Notification:** [swaync](https://github.com/dunst-project/dunst)
