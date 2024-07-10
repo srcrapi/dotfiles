@@ -10,12 +10,12 @@
 
 ## Components
 
-- **WM:** [hyprland](https://github.com/baskerville/bspwm)
-- **OS:** [endeavour](https://archlinux.org)
+- **WM:** [hyprland](https://hyprland.org/)
+- **OS:** [endeavour](https://endeavouros.com/)
 - **Terminal:** [kitty](https://sw.kovidgoyal.net/kitty/)
 - **Shell:** [zsh](https://wiki.archlinux.org/title/Zsh)
-- **File Manager:** [nautilus](https://wiki.archlinux.org/title/PCManFM)
+- **File Manager:** [nautilus](https://github.com/GNOME/nautilus)
 - **Application Launcher:** [rofi](https://github.com/davatorium/rofi)
-- **Bar:** [waybar](https://github.com/polybar/polybar)
-- **Compositor:** [hyprland](https://github.com/yshui/picom)
-- **Notification:** [swaync](https://github.com/dunst-project/dunst)
+- **Bar:** [waybar](https://github.com/Alexays/Waybar)
+- **Compositor:** [hyprland](https://github.com/hyprwm/Hyprland)
+- **Notification:** [swaync](https://github.com/ErikReider/SwayNotificationCenter)
