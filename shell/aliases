@@ -1,25 +1,27 @@
 # system
-alias  l='eza -lh  --icons=auto' # long list
+alias in='yay -S'
+alias un='yay -Rns'
+alias up='yay -Syu'
+alias l='eza -lh  --icons=auto' # long list
+alias lg='eza -lh  --icons=auto --grid' # long list grid
 alias ls='eza -1   --icons=auto' # short list
 alias ll='eza -lha --icons=auto --sort=name --group-directories-first' # long list all
+alias lga='eza -lha --icons=auto --sort=name --group-directories-first --grid' # long list all
 alias ld='eza -lhD --icons=auto' # long list dirs
-alias un='$aurhelper -Rns' # uninstall package
-alias up='$aurhelper -Syu' # update system/package/aur
-alias pl='$aurhelper -Qs' # list installed package
-alias pa='$aurhelper -Ss' # list availabe package
-alias pc='$aurhelper -Sc' # remove unused cache
-alias po='$aurhelper -Qtdq | $aurhelper -Rns -' # remove unused packages, also try > $aurhelper -Qqd | $aurhelper -Rsu --print -
+
+# kitty
+alias icat="kitten icat"
 
 # github
-alias ghrepos='~/.github'
+alias ghrepos='~/github'
 
-# custom
-alias sss='sass --watch scss/style.scss css/style.css'
+# apps
 alias vim='nvim'
-alias vc='code --disable-gpu' # gui code editor
+alias cat='bat'
+alias ff='fastfetch'
+alias fzf='fzf --preview="bat --color=always {}" --border=rounded'
 
-# tmux
-alias tn='tmux new -s'
-alias ta='tmux attach -t'
-alias tk='tmux kill-session -t'
-alias tka='tmux kill-server'
+# obsidian
+alias on="~/.local/bin/obsidian.sh -n"
+alias os="~/.local/bin/obsidian.sh -s"
+alias op="~/.local/bin/obsidian.sh -p"

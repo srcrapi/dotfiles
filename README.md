@@ -1,6 +1,4 @@
-<div align="center">
-    <h1>Hyprland dotfiles</h1>
-</div>
+<h1 align="center">Hyprland dotfiles</h1>
 
 <div align="center">
 
