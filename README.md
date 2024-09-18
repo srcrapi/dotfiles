@@ -1,4 +1,6 @@
-# My personal bspwm desktop
+<div align="center">
+    <h1>My personal bspwm desktop</h1>
+</div>
 
 ## Components
 
@@ -11,5 +13,3 @@
 - **Bar:** [polybar](https://github.com/polybar/polybar)
 - **Compositor:** [picom](https://github.com/yshui/picom)
 - **Notification:** [dunst](https://github.com/dunst-project/dunst)
-
-> For application launcher you can use dmenu instead of rofi
