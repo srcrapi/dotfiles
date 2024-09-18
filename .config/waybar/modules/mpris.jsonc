@@ -1,0 +1,12 @@
+	"mpris": {
+		"format": "{player_icon} <span foreground='white'>{title}</span>",
+		"format-paused": "{status_icon} <span foreground='white'>{title}</span>",
+		"player-icons": {
+			"default": " "
+		},
+		"status-icons": {
+			  "paused": "⏸"
+		},
+
+		"ignored-players":  ["firefox"]
+	},

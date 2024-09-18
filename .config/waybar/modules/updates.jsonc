@@ -1,0 +1,8 @@
+	"custom/updates": {
+		"format": " <span foreground='white'>{}</span>",
+		"return-type": "json",
+		"exec": "~/.config/hypr/scripts/updates.sh",
+		"interval": 86400,
+		"on-click": "kitty yay -Syu",
+		"tooltip": true
+	},

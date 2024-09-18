@@ -1,4 +1,4 @@
 export EDITOR="nvim"
-export BROWSER="firefox-developer-edition"
+export BROWSER="zen-browser-optimized"
 export MUSICPLAYER="spotify"
 export TERMINAL="kitty"

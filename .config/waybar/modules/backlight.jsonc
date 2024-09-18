@@ -1,0 +1,9 @@
+	"backlight": {
+		"device": "amdgpu_bl1",
+		"format":"{icon} <span foreground='white'>{percent}%</span>",
+		"format-icons": ["", "", "", "", "", "", "", "", ""],
+		"on-scroll-up": "brightnessctl set 1%+",
+		"on-scroll-down": "brightnessctl set 1%-",
+		"min-length": 5,
+		"tooltip": false
+	},

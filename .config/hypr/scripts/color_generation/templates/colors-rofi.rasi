@@ -1,0 +1,10 @@
+* {
+    main-bg:            {{ $background }};
+    main-fg:            {{ $primary }};
+    main-br:            {{ $secondary }};
+    main-ex:            {{ $secondary }};
+    select-bg:          {{ $primaryFixedDim }};
+    select-fg:          {{ $onPrimary }};
+    separatorcolor:     transparent;
+    border-color:       transparent;
+}

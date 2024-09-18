@@ -1,0 +1,8 @@
+	"hyprland/language": {
+		"format": "  <span foreground='white'>{}</span>",
+		"format-en": "us",
+		"format-pt": "pt",
+		"on-click": "~/.config/hypr/scripts/keyboard-switch.sh",
+		"min-length": 5,
+		"tooltip": false
+	},

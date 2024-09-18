@@ -1,0 +1,11 @@
+@define-color foreground {{ $primaryFixedDim }};
+@define-color background {{ $background }};
+@define-color backgroundGroup {{ $surfaceContainerHigh }};
+
+@define-color workspaceEmptyBg {{ $onSurfaceVariant }};
+@define-color workspaceDefaultBg {{ $secondary }};
+@define-color workspaceDefaultFg {{ $surfaceContainer }};
+@define-color workspaceActiveBg {{ $primary }};
+@define-color workspaceActiveFg {{ $onPrimary }};
+@define-color workspaceHoverBg {{ $onSecondaryContainer }};
+@define-color borderColor {{ $secondary }};

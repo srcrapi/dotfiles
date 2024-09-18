@@ -6,20 +6,18 @@ alias l='eza -lh  --icons=auto' # long list
 alias lg='eza -lh  --icons=auto --grid' # long list grid
 alias ls='eza -1   --icons=auto' # short list
 alias ll='eza -lha --icons=auto --sort=name --group-directories-first' # long list all
-alias lga='eza -lha --icons=auto --sort=name --group-directories-first --grid' # long list all
+alias lga='eza -lha --icons=auto --sort=name --group-directories-first --grid' # long list all grid
 alias ld='eza -lhD --icons=auto' # long list dirs
 
 # kitty
 alias icat="kitten icat"
-
-# github
-alias ghrepos='~/github'
 
 # apps
 alias vim='nvim'
 alias cat='bat'
 alias ff='fastfetch'
 alias fzf='fzf --preview="bat --color=always {}" --border=rounded'
+alias vfzf='nvim $(fzf --preview="bat --color=always {}" --border=rounded)'
 
 # obsidian
 alias on="~/.local/bin/obsidian.sh -n"

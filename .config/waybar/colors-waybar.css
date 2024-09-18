@@ -1,0 +1,11 @@
+@define-color foreground #f0bf6d;
+@define-color background #17130b;
+@define-color backgroundGroup #2f2921;
+
+@define-color workspaceEmptyBg #d2c5b4;
+@define-color workspaceDefaultBg #dbc3a1;
+@define-color workspaceDefaultFg #241f17;
+@define-color workspaceActiveBg #f0bf6d;
+@define-color workspaceActiveFg #422c00;
+@define-color workspaceHoverBg #f8dfbb;
+@define-color borderColor #dbc3a1;

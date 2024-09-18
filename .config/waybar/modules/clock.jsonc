@@ -1,0 +1,5 @@
+	"clock": {
+		"format": "  <span foreground='white'>{:%I:%M %p}</span>",
+		"format-alt": "  <span foreground='white'>{:%H:%M</span> • <span foreground='white'>%A, %d/%m/%y}</span>",
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+	},

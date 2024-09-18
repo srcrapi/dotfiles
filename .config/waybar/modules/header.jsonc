@@ -1,0 +1,15 @@
+// ! generated with bar_confgen.sh ! //
+
+
+{
+	// source from header module //
+
+	"layer": "top",
+	"position": "${w_position}",
+	"mod": "dock",
+	"height": 31,
+	"spacing": 4,
+	"margin-top": "${m_top}",
+	"margin-bottom": "${m_bot}",
+	"margin-left": "${m_left}",
+	"margin-right": "${m_right}",

@@ -55,3 +55,5 @@ vim.keymap.set("n", "<leader>mp", ":MarkdownPreviewToggle <CR>", opts)
 
 -- Obsidian
 vim.keymap.set("n", "<leader>on", ":ObsidianTemplate notes<CR>", opts)
+vim.keymap.set("n", "<leader>osp", ":! python3 ~/.local/bin/obsidian.py --sync push<CR>", opts)
+vim.keymap.set("n", "<leader>osP", ":! python3 ~/.local/bin/obsidian.py --sync pull<CR>", opts)

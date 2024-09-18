@@ -1,0 +1,11 @@
+	"custom/padd": {
+		"format": " ",
+		"interval": "once",
+		"tooltip": false
+	},
+
+	"custom/sep": {
+		"format": "•",
+		"tooltip": false
+	}
+}

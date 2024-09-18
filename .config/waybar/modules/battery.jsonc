@@ -1,0 +1,12 @@
+	"battery": {
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+
+		"format": "{icon} <span foreground='white'>{capacity}%</span>",
+		"format-charging": " <span foreground='white'>{capacity}%</span>",
+		"format-plugged":" <span> foreground='white'{capacity}%</span>",
+		"format-alt": "{time} {icon}",
+		"format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+	},

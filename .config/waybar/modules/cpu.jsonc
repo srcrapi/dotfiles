@@ -1,0 +1,5 @@
+	"cpu": {
+		"interval": 2,
+		"format": "  {usage}%",
+		"min-length": 6
+	},
