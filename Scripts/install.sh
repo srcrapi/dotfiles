@@ -101,7 +101,7 @@ fi
 
 echo ":: Getting wallpapers..."
 git clone "https://github.com/srcrapi/wallpaper.git" "${HOME}/Pictures/wallpapers" &> /dev/null
-mv "${HOME}"/Pictures/ta/**/* "${HOME}/Pictures/wallpapers"
+mv "${HOME}"/Pictures/wallpapers/**/* "${HOME}/Pictures/wallpapers"
 find "${HOME}/Pictures/wallpapers" -mindepth 1 -type d -exec rm -rf {} +
 rm "${HOME}/Pictures/wallpapers/README.md"
 echo ":: Finished setting up wallpapers"
