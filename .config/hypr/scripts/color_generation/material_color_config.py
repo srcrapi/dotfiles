@@ -9,13 +9,15 @@ from gi.repository import Gtk, Gio
 
 class App(Gtk.Application):
     def __init__(self):
-        super().__init__(application_id="ryo.config.material-color", flags=Gio.ApplicationFlags.FLAGS_NONE)
+        super().__init__(
+            application_id="ryo.config.material-color",
+            flags=Gio.ApplicationFlags.FLAGS_NONE,
+        )
 
         self.config_path = os.path.expanduser("~/.cache/material-colors/config.json")
         self.config = self.load_json()
 
         self.connect("activate", self.on_active)
-
 
     def on_active(self, _):
         win = Gtk.ApplicationWindow(application=self)
@@ -85,21 +87,17 @@ class App(Gtk.Application):
 
         win.show_all()
 
-
     def load_json(self) -> dict:
         with open(self.config_path, "r") as file:
             return json.load(file)
-
 
     def save_json(self) -> None:
         with open(self.config_path, "w") as file:
             json.dump(self.config, file, indent=4)
 
-
     def on_toggle_darkmode(self, darkmode, _):
         self.config["darkmode"] = darkmode.get_active()
         self.save_json()
-
 
     def on_scheme_select(self, scheme):
         scheme_name = scheme.get_active_text()
@@ -109,7 +107,6 @@ class App(Gtk.Application):
 
         self.config["scheme"] = scheme_name
         self.save_json()
-
 
     def on_opaque_toggle(self, opaque, _):
         self.config["opaque"] = opaque.get_active()

@@ -108,6 +108,18 @@ class GenerateMaterialColors:
 
         self.create_directory(self.cache_dir)
 
+        if not os.path.exists(os.path.join(self.cache_dir, "config.json")):
+            default_color_conf = {
+                "darkmode": True,
+                "scheme": "vibrant",
+                "opaque": True,
+                "neovim_colorscheme": "catppuccin_mocha",
+            }
+
+            self.save_json(
+                os.path.join(self.cache_dir, "config.json"), default_color_conf
+            )
+
         args = self.parse_arguments()
 
         mode: bool = args.mode == "dark"

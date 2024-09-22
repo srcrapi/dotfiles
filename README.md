@@ -17,3 +17,8 @@
 - **Bar:** [waybar](https://github.com/Alexays/Waybar)
 - **Compositor:** [hyprland](https://github.com/hyprwm/Hyprland)
 - **Notification:** [swaync](https://github.com/ErikReider/SwayNotificationCenter)
+
+## Preview
+
+![Preview1](./assets/240918_23h01m37s_screenshot.png)
+![Preview1](./assets/240918_23h08m20s_screenshot.png)

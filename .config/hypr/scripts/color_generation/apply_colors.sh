@@ -17,6 +17,7 @@ apply() {
 	filename="$1"
 	conf_dir="$2"
 	filename_dir="$3"
+	colorscheme=`jq -r ".neovim_colorscheme" "${cache_dir}/config.json"`
 
 	if [ -z "$filename_dir" ]; then
 		cp "${templates_dir}/${filename}" "${cache_dir}/${filename}"
@@ -33,6 +34,10 @@ apply() {
 
 		sed -i "s/{{ ${color_names_list[$i]} }}/${color_values_list[$i]}/g" "${cache_dir}/${filename}"
 	done
+	
+	if [ "$filename" = "colorscheme.lua" ]; then
+		sed -i "s/{{ colorscheme }}/${colorscheme}/g" "${cache_dir}/${filename}"
+	fi
 
 	cp "${cache_dir}/${filename}" "${conf_dir}"
 }
@@ -65,6 +70,10 @@ apply_cava() {
 	apply "config" "${config_dir}/cava" "cava"
 }
 
+apply_nvim() {
+	apply "colorscheme.lua" "${config_dir}/nvim/lua/rap1/core" "nvim"
+}
+
 
 apply_kitty &
 apply_waybar &
@@ -72,3 +81,4 @@ apply_hyprland &
 apply_rofi &
 apply_spicetify_theme &
 apply_cava &
+apply_nvim &

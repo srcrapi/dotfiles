@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
 src_dir=$(dirname "$(realpath "$0")")
+dots_dir="${src_dir}/.."
+system_bkp="${HOME}/old-system-bkp"
+config_dir="${HOME}/.config"
+username=`whoami`
 source "${src_dir}/global_funcs.sh"
 
 if [ "$?" -ne 0 ]; then
@@ -40,9 +44,11 @@ install_pywal_discord() {
 
 		case "$pywal_dc_op" in
 			yes|y)
-				git clone "https://github.com/quantumwavves/pywal-discord-vencord.git" "$HOME"
+				echo ":: Installing Pywal Discord"
+				git clone "https://github.com/quantumwavves/pywal-discord-vencord.git" "$HOME/pywal-discord-vencord"
 				chmod +x "$HOME/pywal-discord-vencord/setup"
 				"$HOME/pywal-discord-vencord/setup"
+				echo ":: Installed"
 				;;
 			no|n)
 				break
@@ -64,3 +70,43 @@ if [ ! -d "/usr/share/pywal-discord" ]; then
 	install_pywal_discord
 fi
 
+if [ ! -d "${HOME}/.tmux/plugins" ]; then
+	echo ":: Installing Tmux plugin Manager"
+	git clone "https://github.com/tmux-plugins/tpm" ~/.tmux/plugins/tpm &> /dev/null 
+	echo ":: Installed"
+fi
+
+setup_sddm
+
+mkdir -p "${system_bkp}" "${HOME}/Downloads" "${HOME}/Pictures" "${HOME}/Videos" "${HOME}/Documents" "${HOME}/Music"
+mkdir -p "${HOME}/.local/bin"
+
+mv -n "${config_dir}/*" "${system_bkp}"
+cp -r "${dots_dir}/.config/*" "${config_dir}"
+
+cp -r "${dots_dir}/shell" "${HOME}"
+cp "${dots_dir}/.zsh*" "${HOME}"
+cp -r "${dots_dir}/.local/bin" "${HOME}/.local/bin"
+
+if [ "rap1" != "$username" ]; then
+	mv "${config_dir}/nvim/lua/rap1" "${config_dir}/nvim/lua/${username}"
+	find "${config_dir}/nvim/lua/${username}" -name "*.lua" -exec sed -i "s/rap1/${username}/g" {} + 
+fi
+
+if [ ! -f "${config_dir}/ryarch.json" ]; then
+	echo "{}" > "${config_dir}/ryarch.json"
+fi
+
+# setup wallpapers
+
+echo ":: Getting wallpapers..."
+git clone "https://github.com/srcrapi/wallpaper.git" "${HOME}/Pictures/wallpapers" &> /dev/null
+mv "${HOME}"/Pictures/ta/**/* "${HOME}/Pictures/wallpapers"
+find "${HOME}/Pictures/wallpapers" -mindepth 1 -type d -exec rm -rf {} +
+rm "${HOME}/Pictures/wallpapers/README.md"
+echo ":: Finished setting up wallpapers"
+
+"${HOME}/.local/bin/hypr_config_gen.sh"
+
+python "${generate_material_colors}" --path "${HOME}/Pictures/wallpapers/kessoku_band_sunset.jpg" \
+	> "${cache_dir}/material-colors.scss"

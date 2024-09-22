@@ -2,6 +2,8 @@
 
 set -e
 
+src_dir=$(dirname "$(realpath  "$0")")
+
 is_package_exists() {
 	local pkg="$1"
 
@@ -10,4 +12,12 @@ is_package_exists() {
 	fi
 
 	return 1
+}
+
+setup_sddm() {
+	echo ":: Configuring SDDM theme"
+	sudo cp -r "${src_dir}/../themes" /usr/share/sddm
+	sudo cp -r "${src_dir}/../faces" /usr/share/sddm
+	sudo cp -r "${src_dir}/../sddm.conf.d" /etc/
+	echo ":: Complete"
 }

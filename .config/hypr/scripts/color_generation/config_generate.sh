@@ -15,11 +15,15 @@ config_gen() {
 
   if [ "${darkmode}" = "true" ]; then
     mode="dark"
-	sed -i "s/catppuccin-latte/catppuccin-mocha/g" "${HOME}/.config/nvim/lua/rap1/core/colorscheme.lua"
+	jq '.neovim_colorscheme = "catppuccin-mocha"' "${cache_dir}/config.json" > /tmp/config.json
+	mv /tmp/config.json "${cache_dir}/config.json"
+
 	sed -i "s/black/white/g" "${waybar_config}"
   else
     mode="light"
-	sed -i "s/catppuccin-mocha/catppuccin-latte/g" "${HOME}/.config/nvim/lua/rap1/core/colorscheme.lua"
+	jq '.neovim_colorscheme = "catppuccin-latte"' "${cache_dir}/config.json" > /tmp/config.json
+	mv /tmp/config.json "${cache_dir}/config.json"
+
 	sed -i "s/white/black/g" "${waybar_config}"
   fi
 

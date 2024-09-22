@@ -2,6 +2,7 @@ hyprland
 hyprpicker
 hyprlock
 hyprutils
+hypridle
 python-pillow
 python-materialyoucolor-git
 python-gobject
@@ -43,3 +44,4 @@ swappy
 jq
 polkit-gnome
 obsidian
+steam

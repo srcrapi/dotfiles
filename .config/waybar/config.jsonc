@@ -19,7 +19,7 @@
 
 	"modules-left": ["custom/padd","custom/launcher","custom/padd","tray"],
 	"modules-center": ["custom/updates","hyprland/workspaces","battery"],
-	"modules-right": ["clock","custom/sep","hyprland/language","backlight","custom/sep","network","pulseaudio","custom/notification","custom/padd"],
+	"modules-right": ["clock","custom/sep","hyprland/language","backlight","custom/sep","network","pulseaudio","custom/notification","custom/padd","custom/padd"],
 
 
 	// source in the modules folder  //
