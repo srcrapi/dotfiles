@@ -4,6 +4,9 @@ return {
 		require("nvim-treesitter.configs").setup({
 			ensure_installed = {
 				"c",
+				"cpp",
+				"rust",
+				"go",
 				"lua",
 				"vim",
 				"vimdoc",
@@ -11,6 +14,7 @@ return {
 				"markdown_inline",
 				"python",
 				"typescript",
+				"javascript",
 				"astro",
 			},
 

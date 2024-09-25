@@ -26,21 +26,13 @@ return {
 					"⠈⠻⠏⢿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣿⣿⣿⣷⣦⣤⣀⡀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⢸⠻⢿⣧⠀⠀⠀⢀",
 					"⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣧⠙⠈⠻⢿⣧⠉⠛⠿⣿⡟⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠐⡉⠓⠀⠀⠂",
 					"⠀⠀⠀⠀⣿⣿⣹⣿⣿⣿⣿⠟⠀⠀⠀⠀⠀⠀⠀⢀⡿⠀⠈⠐⠠⠀⣀⠀⠀⠀⠀⠀⡠⠁⠀⠐⡄⠤⡐⣀",
-					"                 __  ",
-					"                /  | ",
-					" _ __ __ _ _ __ `| | ",
-					"| '__/ _` | '_ \\ | | ",
-					"| | | (_| | |_) || |_",
-					"|_|  \\__,_| .__/\\___/",
-					"          | |        ",
-					"          |_|        ",
 					"",
 				},
 				center = {
 					{
 						icon = " ",
 						icon_hl = "Title",
-						desc = "Find File           ",
+						desc = "find file                ",
 						desc_hl = "String",
 						key = "f",
 						key_hl = "Number",
@@ -49,10 +41,17 @@ return {
 					},
 					{
 						icon = " ",
-						desc = "Select Colorscheme",
+						desc = "select colorscheme",
 						key = "c",
 						key_format = " %s", -- remove default surrounding `[]`
-						action = ":Telescope colorscheme",
+						action = ":telescope colorscheme",
+					},
+					{
+						icon = "󰈆 ",
+						desc = "quit",
+						key = "q",
+						key_format = " %s", -- remove default surrounding `[]`
+						action = ":qa",
 					},
 				},
 				footer = {}, --your footer
