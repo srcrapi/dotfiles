@@ -20,6 +20,6 @@ alias fzf='fzf --preview="bat --color=always {}" --border=rounded'
 alias vfzf='nvim $(fzf --preview="bat --color=always {}" --border=rounded)'
 
 # obsidian
-alias on="~/.local/bin/obsidian.sh -n"
-alias os="~/.local/bin/obsidian.sh -s"
-alias op="~/.local/bin/obsidian.sh -p"
+alias on="python3 ~/.local/bin/obsidian.py -n"
+alias os="python3 ~/.local/bin/obsidian.py -s"
+alias op="python3 ~/.local/bin/obsidian.py -p"
