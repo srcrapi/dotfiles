@@ -21,7 +21,7 @@ kitty
 lazygit 
 eza
 zsh
-# oh-my-zsh-git
+oh-my-zsh-git
 starship
 zoxide
 fzf
@@ -45,3 +45,4 @@ jq
 polkit-gnome
 obsidian
 steam
+udiskie
