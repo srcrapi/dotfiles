@@ -5,6 +5,7 @@ dots_dir="${src_dir}/.."
 system_bkp="${HOME}/old-system-bkp"
 config_dir="${HOME}/.config"
 username=`whoami`
+generate_material_colors="${HOME}/.config/hypr/scripts/color_generation/generate_material_colors.py"
 source "${src_dir}/global_funcs.sh"
 
 if [ "$?" -ne 0 ]; then
@@ -77,12 +78,13 @@ if [ ! -d "${HOME}/.tmux/plugins" ]; then
 fi
 
 setup_sddm
+setup_grub
 
 mkdir -p "${system_bkp}" "${HOME}/Downloads" "${HOME}/Pictures" "${HOME}/Videos" "${HOME}/Documents" "${HOME}/Music"
 mkdir -p "${HOME}/.local/bin"
 
-mv -n "${config_dir}/*" "${system_bkp}"
-cp -r "${dots_dir}/.config/*" "${config_dir}"
+mv -n "${config_dir}" "${system_bkp}"
+cp -r "${dots_dir}/.config" "${config_dir}"
 
 cp -r "${dots_dir}/shell" "${HOME}"
 cp "${dots_dir}/.zsh*" "${HOME}"
@@ -93,10 +95,6 @@ if [ "rap1" != "$username" ]; then
 	find "${config_dir}/nvim/lua/${username}" -name "*.lua" -exec sed -i "s/rap1/${username}/g" {} + 
 fi
 
-if [ ! -f "${config_dir}/ryarch.json" ]; then
-	echo "{}" > "${config_dir}/ryarch.json"
-fi
-
 # setup wallpapers
 
 echo ":: Getting wallpapers..."
@@ -105,6 +103,12 @@ mv "${HOME}"/Pictures/wallpapers/**/* "${HOME}/Pictures/wallpapers"
 find "${HOME}/Pictures/wallpapers" -mindepth 1 -type d -exec rm -rf {} +
 rm "${HOME}/Pictures/wallpapers/README.md"
 echo ":: Finished setting up wallpapers"
+
+# create ryarch file
+
+if [ ! -f "${config_dir}/ryarch.json" ]; then
+	echo "{}" > "${config_dir}/ryarch.json"
+fi
 
 "${HOME}/.local/bin/hypr_config_gen.sh"
 

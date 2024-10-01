@@ -21,3 +21,10 @@ setup_sddm() {
 	sudo cp -r "${src_dir}/../sddm.conf.d" /etc/
 	echo ":: Complete"
 }
+
+setup_grub() {
+	echo ":: Configuring Grub theme"
+	sudo cp -r "${src_dir}/../grub-theme/ryo" /usr/share/grub/themes
+	sudo sed -i "s+^GRUB_THEME=.*+GRUB_THEME=\"/usr/share/grub/themes/ryo/theme.txt\"+g" /etc/default/grub
+	echo ":: Complete"
+}
