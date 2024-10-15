@@ -1,5 +1,20 @@
 return {
-	{ "williamboman/mason.nvim" },
+	{
+		"williamboman/mason.nvim",
+		opts = {
+			ensure_installed = {
+				"rust-analyzer",
+				"ruff",
+				"ruff-lsp",
+				"prettier",
+				"prettierd",
+				"python-lsp-server",
+				"codelldb",
+				"goimports",
+				"gopls"
+			},
+		},
+	},
 	{
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
@@ -49,16 +64,6 @@ return {
 
 				clangd = {
 					cmd = { "clangd", "--background-index", "--clang-tidy" },
-				},
-
-				rust_analyzer = {
-					settings = {
-						["rust_analyzer"] = {
-							diagnostics = {
-								enable = true,
-							},
-						},
-					},
 				},
 			}
 

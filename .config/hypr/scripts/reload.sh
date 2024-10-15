@@ -33,7 +33,7 @@ python "${generate_material_colors}" --path "${wallpaper}" \
 "${HOME}/.config/hypr/scripts/color_generation/apply_colors.sh"
 "${HOME}/.local/bin/bar_confgen.sh"
 "${HOME}/.local/bin/bar_stylegen.sh"
-"${HOME}/.local/bin/hypr_config_gen.sh"
+python "${HOME}/.local/bin/hypr_config_gen.py"
 
 if [ "${darkmode}" = "true" ]; then
 	sed -i "s/black/white/g" "${waybar_config}"

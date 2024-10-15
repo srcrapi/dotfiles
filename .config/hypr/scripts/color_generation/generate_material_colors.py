@@ -1,5 +1,6 @@
 import os
 import json
+import stat
 
 import argparse
 from PIL import Image
@@ -13,19 +14,20 @@ class GenerateMaterialColors:
     def __init__(self, cache_dir: str) -> None:
         self.cache_dir = cache_dir
         self.rgba_to_hex = lambda r, g, b, a=255: f"#{r:02x}{g:02x}{b:02x}"
+        self.app_file_path = os.path.expanduser("~/.local/share/applications/material_colors.desktop")
         self.display_colors = (
             lambda r,
             g,
             b,
             a=255: f"\x1b[38;2;{r};{g};{b}m{"\x1b[7m     \x1b[7m"}\x1b[0m"
         )
-        self.app_file_path = os.path.expanduser(
-            "~/.local/share/applications/material-color.desktop"
-        )
 
     def create_directory(self, dir: str) -> None:
         if not os.path.exists(dir):
             os.makedirs(dir, exist_ok=True)
+
+    def is_file_exists(self, path: str) -> bool:
+        return os.path.exists(path)
 
     def parse_arguments(self) -> argparse.Namespace:
         parser = argparse.ArgumentParser(
@@ -89,24 +91,30 @@ class GenerateMaterialColors:
 
         # Create .desktop file
         app_file = f"""[Desktop Entry]
-        Name=Material Color Configs
-        Comment=Material color configuration app
-        Exec=python3 /home/{user}/.config/hypr/scripts/color_generation/material_color_config.py
-        Icon=material-color
-        Terminal=false
-        Type=Application
-        StartupWMClass=ryo.config.material-color
-        Categories=Utility
+Name=Material Color Configs
+Comment=Material color configuration app
+Exec=python3 /home/{user}/.config/hypr/scripts/color_generation/material_color_config.py
+Icon=material-color
+Terminal=false
+Type=Application
+StartupWMClass=ryo.config.material-color
+Categories=Utility
         """
 
         with open(self.app_file_path, "w") as file:
             file.write(app_file)
 
-    def generate_colors(self) -> None:
-        if not os.path.exists(self.app_file_path):
-            self.create_desktop_file()
+        # get current permissions
+        permissions = os.stat(self.app_file_path).st_mode
 
+        # give exec permissions
+        os.chmod(self.app_file_path, permissions | stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH)
+
+    def generate_colors(self) -> None:
         self.create_directory(self.cache_dir)
+
+        if not self.is_file_exists(self.app_file_path):
+            self.create_desktop_file()
 
         if not os.path.exists(os.path.join(self.cache_dir, "config.json")):
             default_color_conf = {

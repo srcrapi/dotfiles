@@ -25,7 +25,7 @@
 	// source in the modules folder  //
 
 	"custom/launcher": {
-		"format": "",
+		"format": "",
 		"tooltip": false,
 		"on-click": "pkill -x rofi || rofi -show drun"
 	},

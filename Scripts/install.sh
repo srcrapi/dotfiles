@@ -65,6 +65,7 @@ install_pywal_discord() {
 install_yay
 
 pkgs=( $( grep -v "^#" "${src_dir}/pkgs.lst" ) ) 
+install_pkgs "${pkgs[@]}"
 
 
 if [ ! -d "/usr/share/pywal-discord" ]; then
