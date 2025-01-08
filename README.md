@@ -1,4 +1,4 @@
-<h1 align="center">Hyprland dotfiles</h1>
+<h1 align="center">Nixos dotfiles</h1>
 
 <div align="center">
 
@@ -9,7 +9,7 @@
 ## Components
 
 - **WM:** [hyprland](https://hyprland.org/)
-- **OS:** [endeavour](https://endeavouros.com/)
+- **OS:** [nixos](https://endeavouros.com/)
 - **Terminal:** [kitty](https://sw.kovidgoyal.net/kitty/)
 - **Shell:** [zsh](https://wiki.archlinux.org/title/Zsh)
 - **File Manager:** [nautilus](https://github.com/GNOME/nautilus)
@@ -20,5 +20,5 @@
 
 ## Preview
 
-![Preview1](./assets/240918_23h01m37s_screenshot.png)
-![Preview1](./assets/240918_23h08m20s_screenshot.png)
+![Preview1](./assets/250108_23h40m06s_screenshot.png)
+![Preview1](./assets/250108_23h40m18s_screenshot.png)
