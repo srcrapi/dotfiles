@@ -1,4 +1,5 @@
 import random
+import sys
 
 
 def bold_string(string: str) -> str:
@@ -18,6 +19,11 @@ def main():
             "Abandoning your uniqueness is equivalent to dying",
             "But won't it be hilarious if a normie sings that?",
         ],
+        "kyotosplit": [
+            "dias iguais",
+            "last fall of love",
+            "uma dose de virtual love"
+        ],
     }
 
     author = random.choice(list(quotes.keys()))
@@ -27,8 +33,13 @@ def main():
 
     out = f'"{quote}" by {author}'
 
-    with open("/tmp/out_random_quotes.txt", "w") as f:
-        f.write(out)
+    debug = ["-d", "--debug"]
+
+    if sys.argv[1] in debug:
+        print(out)
+    else:
+        with open("/tmp/out_random_quotes.txt", "w") as f:
+            f.write(out)
 
 
 if __name__ == "__main__":

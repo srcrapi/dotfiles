@@ -73,7 +73,7 @@ select_bar_style() {
 case "$1" in
 	-wall | --wallpaper)
 		# List all the wallpapers
-		"${srcDir}/color_generation/config_generate.sh"
+		nix-shell "${srcDir}/color_generation/shell.nix"
 		;;
 	-b | --bar)
 		select_bar

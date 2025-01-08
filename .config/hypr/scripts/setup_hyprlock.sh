@@ -7,4 +7,8 @@ python3 ${script_random_quotes}
 
 export RANDOM_QUOTE=$(head -1 ${out_random_quotes})
 
-hyprlock
+if [ "$1" == "-d" ]; then
+	echo "$RANDOM_QUOTE"
+else
+	hyprlock
+fi

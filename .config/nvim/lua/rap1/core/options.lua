@@ -15,8 +15,8 @@ opt.relativenumber = true
 opt.colorcolumn = "100"
 opt.splitright = true
 opt.splitbelow = true
-opt.list = true
-opt.listchars = { tab = "│ " }
+-- opt.list = true
+-- opt.listchars = { tab = "│ " }
 opt.conceallevel = 1
 
 -- Search

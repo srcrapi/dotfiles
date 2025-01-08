@@ -5,10 +5,9 @@ return {
 			ensure_installed = {
 				"rust-analyzer",
 				"ruff",
-				"ruff-lsp",
 				"prettier",
 				"prettierd",
-				"python-lsp-server",
+				"pylsp",
 				"codelldb",
 				"goimports",
 				"gopls"

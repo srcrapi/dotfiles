@@ -113,8 +113,8 @@ Categories=Utility
     def generate_colors(self) -> None:
         self.create_directory(self.cache_dir)
 
-        if not self.is_file_exists(self.app_file_path):
-            self.create_desktop_file()
+        # if not self.is_file_exists(self.app_file_path):
+        #    self.create_desktop_file()
 
         if not os.path.exists(os.path.join(self.cache_dir, "config.json")):
             default_color_conf = {

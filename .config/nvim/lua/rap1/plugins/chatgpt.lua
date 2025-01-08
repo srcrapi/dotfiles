@@ -1,4 +1,5 @@
 -- Just let it be here because i dont have the money to use it :)
+--[[
 return {
 	"jackMort/ChatGPT.nvim",
 	event = "VeryLazy",
@@ -17,3 +18,5 @@ return {
 		"nvim-telescope/telescope.nvim",
 	},
 }
+--]]
+return {}
