@@ -1,0 +1,27 @@
+{
+  programs.kitty = {
+    enable = true;
+
+    settings = {
+      include = "./colors-kitty.conf";
+      
+      font_family = "Fira Code Nerd Font";
+      bold_font = "auto";
+      italic = "auto";
+      bold_italic_font = "auto";
+
+      font_size = 14;
+
+      disable_ligatures = "never";
+      copy_on_select = "always";
+      placement_strategy = "center";
+
+      cursor_shape = "block";
+      cursor_beam_thickness = 10;
+      cursor_blink_interval = 0;
+
+      confirm_os_window_close = 0;
+      window_padding_width = 20;
+    };
+  };
+}

@@ -1,0 +1,88 @@
+{
+  programs.starship = {
+    enable = true;
+
+    settings = {
+      format = ''
+$directory $git_branch
+$character
+      '';
+
+      right_format = "$cmd_duration";
+
+      character = {
+        success_symbol = "[λ](bold fg:green)";
+        error_symbol = "[λ](bold fg:red)";
+      };
+
+      package.disabled = true;
+      line_break.disabled = false;
+
+      memory_usage = {
+        disabled = true;
+        threshold = -1;
+        symbol = " ";
+        style = "bold dimmed green";
+      };
+
+      time = {
+        disabled = true;
+        format = "🕙[\[ $time \]]($style) ";
+        time_format = "%T";
+      };
+
+      directory = {
+        style = "bg:green fg:black";
+        truncation_length = 6;
+        truncation_symbol = "••/";
+        format = "$path";
+      };
+
+      directory.substitutions = {
+        "Desktop" = "  ";
+        "Documents" = "  ";
+        "Downloads" = "  ";
+        "Music" = " 󰎈 ";
+        "Pictures" = "  ";
+        "Videos" = "  ";
+      };
+
+      cmd_duration = {
+        min_time = 0;
+        format = "[ $duration](bold fg:yellow)";
+      };
+
+      git_branch = {
+        style = "bg: green";
+        symbol = "󰘬";
+        truncation_length = 4;
+        truncation_symbol = "";
+        format = "• [](bold fg:green)[$symbol $branch(:$remote_branch)](fg:black bg:green)[ ](bold fg:green)";
+      };
+
+      git_commit = {
+        commit_hash_length = 4;
+        tag_symbol = " ";
+      };
+
+      git_state = {
+        format = "[\($state( $progress_current of $progress_total)\)]($style) ";
+        cherry_pick = "[🍒 PICKING](bold red)";
+      };
+
+      git_status = {
+        conflicted = " 🏳 ";
+        ahead = " 🏎💨 ";
+        behind = " 😰 ";
+        diverged = " 😵 ";
+        untracked = " 🤷 ";
+        stashed = " 📦 ";
+        modified = " 📝 ";
+        staged = "[++\($count\)](green)";
+        renamed = " ✍️ ";
+        deleted = " 🗑 ";
+      };
+
+    };
+  };
+}

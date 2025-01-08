@@ -1,0 +1,136 @@
+@import "./colors-waybar.css";
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 14px;
+  font-weight: bold;
+  min-height: 14px;
+}
+
+tooltip {
+  background-color: @background;
+  color: @foreground;
+  border-radius: 4px;
+  border: 1px solid @borderColor;
+}
+
+window#waybar {
+  background-color: @background;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+
+
+#clock,
+#mpris,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#window,
+#workspaces,
+#custom-updates,
+#tray > .active,
+#mode,
+#keyboard-state,
+#language,
+#idle_inhibitor,
+#custom-notification,
+#custom-launcher,
+#custom-sep,
+#network,
+#scratchpad,
+#power-profiles-daemon,
+#mpd {
+	color: @workspaceActiveBg;
+	padding: 2px;
+}
+
+#workspaces {
+  background-color: @backgroundGroup;
+  border-radius: 12px;
+  margin: 4px;
+}
+
+#custom-launcher {
+  padding-left: 15px;
+  padding-right: 10px;
+}
+
+
+#workspaces button {
+  background: @workspaceDefaultBg;
+  color: @workspaceDefaultFg;
+  box-shadow: none;
+  text-shadow: none;
+  padding: 0px;
+  border-radius: 9px;
+  margin: 3px 3px;
+  padding-left: 3px;
+  padding-right: 3px;
+  animation: ws_normal 20s ease-in-out 1;
+}
+
+#workspaces button.active {
+  background: @workspaceActiveBg;
+  color: @workspaceActiveFg;
+  margin-left: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-right: 3px;
+  animation: ws_active 20s ease-in-out 1;
+  transition: all 0.4s cubic-bezier(0.44, -0.7, 0.69, 0.92);
+}
+
+#workspaces button:hover {
+  background: @workspaceHoverBg;
+  color: @foreground;
+  animation: ws_hover 20s ease-in-out 1;
+  transition: all 0.3s cubic-bezier(0.44, -0.7, 0.69, 0.92);
+}
+
+#custom-updates {
+  background-color: @backgroundGroup;
+  border-radius: 12px;
+  margin: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+#tray {
+  margin: 4px;
+  background-color: @backgroundGroup;
+  border-radius: 12px;
+}
+
+
+#tray > .active > * {
+  padding-left: 4px;
+  padding-right: 4px
+}
+
+
+#battery {
+  background-color: @backgroundGroup;
+  border-radius: 12px;
+  margin: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+#mpris {
+	background-color: @backgroundGroup;
+	color: @workspaceActiveBg;
+	border-radius: 12px;
+	margin: 4px;
+	padding-left: 6px;
+	padding-right: 6px;
+}
