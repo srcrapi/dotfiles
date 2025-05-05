@@ -3,6 +3,6 @@
 		"return-type": "json",
 		"exec": "~/.config/hypr/scripts/updates.sh",
 		"interval": 86400,
-		"on-click": "kitty yay -Syu",
+		"on-click": "wezterm -e yay -Syu",
 		"tooltip": true
 	},

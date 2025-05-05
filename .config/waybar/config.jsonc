@@ -7,7 +7,7 @@
 	"layer": "top",
 	"position": "top",
 	"mod": "dock",
-	"height": 31,
+	"height": "31",
 	"spacing": 4,
 	"margin-top": "0",
 	"margin-bottom": "0",
@@ -39,7 +39,7 @@
 		"return-type": "json",
 		"exec": "~/.config/hypr/scripts/updates.sh",
 		"interval": 86400,
-		"on-click": "kitty yay -Syu",
+		"on-click": "wezterm -e yay -Syu",
 		"tooltip": true
 	},
 	"hyprland/workspaces": {
@@ -61,16 +61,19 @@
 			"critical": 15
 		},
 
-		"format": "{icon} <span foreground='white'>{capacity}%</span>",
+		"format": "{icon} ",
+		"format-alt": "{icon} <span foreground='white'>{capacity}%</span>",
 		"format-charging": " <span foreground='white'>{capacity}%</span>",
 		"format-plugged":" <span> foreground='white'{capacity}%</span>",
-		"format-alt": "{time} {icon}",
-		"format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+		// "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+		 "format-icons": ["", "", "", "", ""],
+		"rotate": 0
 	},
 	"clock": {
 		"format": "  <span foreground='white'>{:%I:%M %p}</span>",
 		"format-alt": "  <span foreground='white'>{:%H:%M</span> • <span foreground='white'>%A, %d/%m/%y}</span>",
-		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"rotate": 0
 	},
 	"hyprland/language": {
 		"format": "  <span foreground='white'>{}</span>",

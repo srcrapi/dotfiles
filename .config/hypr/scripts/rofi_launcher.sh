@@ -6,9 +6,10 @@ cache_dir="${save_dir}/.cache"
 config_dir="${HOME}/.config"
 prompt_location="${config_dir}/starship"
 waybar_dir="$config_dir/waybar"
-conf_ctl="$waybar_dir/config.ctl"
+ryarch="${config_dir}/ryarch/ryarch.json"
 styles_dir="$waybar_dir/styles"
 themes_dir="$config_dir/hypr/themes"
+local_bin="${HOME}/.local/bin"
 
 help_menu() {
 	echo "$0" commands:
@@ -36,44 +37,58 @@ select_prompt() {
 }
 
 select_bar() {
-	bar_name="$(grep 'Name' $conf_ctl | cut -d '=' -f 2 | rofi -dmenu -hover-select -me-select-entry '' -me-accept-entry- MousePrimary)"
+	bar_name="$(jq -r ".waybar.bars[].name" "$ryarch" | rofi -dmenu -hover-select -me-select-entry '' -me-accept-entry- MousePrimary)"
 
-	if [ -z "$bar_name" ]; then
-		exit 1
-	fi
+	[[ -z "$bar_name" ]] && exit 1
 
-	bar_name_index=$(grep -n "Name=$bar_name$" $conf_ctl | cut -d ':' -f 1)
+	is_active=$(jq -r --arg name "$bar_name" '.waybar.bars[] | select(.name == $name) | .active' "$ryarch")
 
-	# pega a linha da config da barra
-	bar_conf_index=$((bar_name_index + 1))
-	echo "$bar_conf_index"
+	[[ "$is_active" == "1" ]] && exit 0
 
-	bar_conf=$(cat "$conf_ctl" | sed -n "${bar_conf_index}p")
+	jq --arg name "$bar_name" '
+		.waybar.bars |= map(
+			if .name == $name then .active = 1 else .active = 0 end
+		)
+	' "$ryarch" > "${ryarch}.tmp" && mv "${ryarch}.tmp" "$ryarch"
 
-	first_item=$(echo "$bar_conf" | cut -d "|" -f 1)
-	
-	# se a barra atual for selecionada sai
-	if [[ $first_item == "1" ]]; then
-		exit 0
-	fi
+	style_name=$(jq -r --arg name "$bar_name" '.waybar.bars[] | select(.name == $name) | .style' "$ryarch")
 
-	# remove a barra atual que esta ativa
-	sed -i "s/^1|/0|/g" "$conf_ctl"
+	echo "$style_name"
 
-	# muda a barra selecionada para atual
-	sed -i "${bar_conf_index}s/^0|/1|/g" "$conf_ctl"
+	"${local_bin}/bar_confgen.sh"	
+	select_bar_style "$style_name"
+
 }
 
 select_bar_style() {
-	style_name=$(ls ${styles_dir} | cut -d "." -f 1 | rofi -dmenu -hover-select -me-select-entry '' -me-accept-entry- MousePrimary)
+	if [ -z "$1" ]; then
+		style_name=$(ls ${styles_dir} | cut -d "." -f 1 | rofi -dmenu -hover-select -me-select-entry '' -me-accept-entry- MousePrimary)
+
+		if [ -z "$style_name" ]; then
+			exit 1
+		fi
+	else
+		style_name="$1"
+	fi
+
+	bar_name=$(jq -r ".waybar.bars[] | select(.active == 1) | .name" "$ryarch")
+	
+	jq --arg name "$bar_name" --arg style "$style_name" '
+		.waybar.bars |= map(
+			if .name == $name then .style = $style else . end
+		)
+	' "$ryarch" > "${ryarch}.tmp" && mv "${ryarch}.tmp" "$ryarch"
 
 	ln -fs "${styles_dir}/${style_name}.css" "${waybar_dir}/modules/style.css"
+	"${local_bin}/bar_stylegen.sh"	
+
+	pkill waybar && sleep 0.5 && waybar &
 }
 
 case "$1" in
 	-wall | --wallpaper)
 		# List all the wallpapers
-		nix-shell "${srcDir}/color_generation/shell.nix"
+		~/.config/hypr/scripts/color_generation/config_generate.sh
 		;;
 	-b | --bar)
 		select_bar

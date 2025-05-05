@@ -30,9 +30,10 @@ apply() {
 	for i in "${!color_names_list[@]}"; do
 		if [[ "$filename" == *"hypr"* ]] || [[ "$filename" = "color.ini" ]]; then
 			sed -i "s/{{ ${color_names_list[$i]} }}/${color_values_list[$i]#\#}/g" "${cache_dir}/${filename}"
+		else
+			sed -i "s/{{ ${color_names_list[$i]} }}/${color_values_list[$i]}/g" "${cache_dir}/${filename}"
 		fi
 
-		sed -i "s/{{ ${color_names_list[$i]} }}/${color_values_list[$i]}/g" "${cache_dir}/${filename}"
 	done
 	
 	if [ "$filename" = "colorscheme.lua" ]; then
@@ -46,6 +47,14 @@ apply() {
 apply_kitty() {
 	apply "colors-kitty.conf" "${config_dir}"/kitty
 	pkill -10 kitty
+}
+
+apply_ghostty() {
+	apply "colors-ghostty" "${config_dir}"/ghostty
+}
+
+apply_ghostty() {
+	apply "colors-wezterm.lua" "${config_dir}"/wezterm
 }
 
 
@@ -71,14 +80,21 @@ apply_cava() {
 }
 
 apply_nvim() {
-	apply "colorscheme.lua" "${config_dir}/nvim/lua/rap1/core" "nvim"
+	apply "colorscheme.lua" "${config_dir}/nvim/lua/${USER}/core" "nvim"
 }
 
+apply_dunst() {
+	apply "dunstrc" "${config_dir}/dunst"
+	systemctl --user restart dunst
+}
 
 apply_kitty &
+apply_ghostty &
+apply_wezterm &
 apply_waybar &
 apply_hyprland &
 apply_rofi &
-apply_spicetify_theme &
+#apply_spicetify_theme &
 apply_cava &
 apply_nvim &
+apply_dunst &

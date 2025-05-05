@@ -1,0 +1,20 @@
+foreground = {{ $onBackground }}
+background = {{ $background }}
+cursor-color = {{ $onBackground }}
+
+palette = 0={{ $background }}
+palette = 8=#9ca3a8
+palette = 1={{ $secondary }}
+palette = 9={{ $secondary }}
+palette = 2={{ $primary }}
+palette = 10={{ $primary }}
+palette = 3={{ $secondary }}
+palette = 11={{ $secondary }}
+palette = 4={{ $primary }}
+palette = 12={{ $primary }}
+palette = 5=#9AA7C8
+palette = 13=#9AA7C8
+palette = 6=#ABD4EA
+palette = 14=#ABD4EA
+palette = 7={{ $onBackground }}
+palette = 15={{ $onBackground }}

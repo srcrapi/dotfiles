@@ -1,0 +1,103 @@
+{
+  "hyprland": {
+    "rounded_corners": true,
+    "border_size": 3,
+    "shadow": false,
+    "keyboard_layouts": [
+      "us",
+      "pt"
+    ]
+  },
+  "waybar": {
+    "bars": [
+      {
+        "name": "default",
+        "style": "default",
+        "active": 1,
+        "position": "top",
+        "numbers": false,
+        "rounded": true,
+        "margin": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "modules-left": "(:: custom/launcher ::) (tray)",
+        "modules-center": "(custom/updates hyprland/workspaces battery)",
+        "modules-right": "(clock) @ (hyprland/language backlight) @ (network pulseaudio custom/notification :: ::)"
+      },
+      {
+        "name": "float",
+        "style": "float",
+        "active": 0,
+        "position": "top",
+        "numbers": false,
+        "rounded": true,
+        "margin": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "modules-left": "(:: custom/launcher hyprland/workspaces)",
+        "modules-center": "(mpris clock backlight)",
+        "modules-right": "(tray custom/updates hyprland/language battery network pulseaudio custom/notification ::)"
+      },
+      {
+        "name": "bot",
+        "style": "default",
+        "active": 0,
+        "position": "bottom",
+        "numbers": false,
+        "rounded": true,
+        "margin": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "modules-left": "(:: custom/launcher ::) (tray)",
+        "modules-center": "(custom/updates hyprland/workspaces battery)",
+        "modules-right": "(clock) @ (hyprland/language backlight) @ (network pulseaudio custom/notification :: ::)"
+      },
+      {
+        "name": "right",
+        "style": "right",
+        "active": 0,
+        "position": "right",
+        "numbers": false,
+        "rounded": true,
+        "margin": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "modules-left": "(:: custom/launcher ::) (tray)",
+        "modules-center": "(custom/updates hyprland/workspaces battery)",
+        "modules-right": "(clock) @ (hyprland/language backlight) @ (network pulseaudio custom/notification :: ::)"
+      },
+      {
+        "name": "left",
+        "style": "left",
+        "active": 0,
+        "position": "left",
+        "numbers": false,
+        "rounded": true,
+        "margin": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "modules-left": "(:: custom/launcher ::) (tray)",
+        "modules-center": "(custom/updates hyprland/workspaces battery)",
+        "modules-right": "(clock) @ (hyprland/language backlight) @ (network pulseaudio custom/notification :: ::)"
+      }
+    ]
+  },
+  "obsidian": {
+    "vault": "personal"
+  }
+}

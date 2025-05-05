@@ -4,9 +4,11 @@
 			"critical": 15
 		},
 
-		"format": "{icon} <span foreground='white'>{capacity}%</span>",
+		"format": "{icon} ",
+		"format-alt": "{icon} <span foreground='white'>{capacity}%</span>",
 		"format-charging": " <span foreground='white'>{capacity}%</span>",
 		"format-plugged":" <span> foreground='white'{capacity}%</span>",
-		"format-alt": "{time} {icon}",
-		"format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+		// "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+		 "format-icons": ["", "", "", "", ""],
+		"rotate": ${M_rotate}
 	},

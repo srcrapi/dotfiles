@@ -1,0 +1,50 @@
+@use "./global.scss" as *;
+
+window.Power-Menu {
+  background-color: rgba($background, 0.8);
+  color: white;
+
+  >box {
+      margin: 10px;
+      min-width: 800px;
+      min-height: 400px;
+      box-shadow: 2px 3px 5px 0 black;
+      border-radius: 50px;
+
+
+      >box {
+        background: $secondary;
+
+        >button {
+            border-radius: 0;
+            outline: none;
+            border: none;
+            transition: all 0.2s ease-in;
+
+            >icon {
+              font-size: 70px;
+            }
+
+            &:focus {
+              background-color: $primary;
+              color: black;
+            }
+
+            &:hover {
+              background-color: rgba($primary, 0.5);
+              color: black;
+            }
+        }
+
+        &:first-child, &:first-child > button {
+          border-top-left-radius: 50px;
+          border-bottom-left-radius: 50px;
+        }
+
+        &:last-child, &:last-child > button {
+          border-top-right-radius: 50px;
+          border-bottom-right-radius: 50px;
+        }
+    }
+  }
+}

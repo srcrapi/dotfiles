@@ -1,5 +1,5 @@
 	"hyprland/workspaces": {
-		"format": "{icon}",
+		"format": "${numbers}",
 		"format-icons": {
 			"active": "",
 			"default": "",

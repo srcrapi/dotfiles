@@ -13,7 +13,7 @@ return {
 			"hrsh7th/cmp-cmdline", -- cmdline auto-completion
 		},
 		config = function()
-			require("rap1.config.nvim-cmp")
+			require("ryfenri.config.nvim-cmp")
 		end,
 	},
 }

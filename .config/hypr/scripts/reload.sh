@@ -8,7 +8,7 @@ darkmode=$(jq -r ".darkmode" "${cache_dir}"/config.json )
 
 if [ "${darkmode}" = "true" ]; then
 	mode="dark"
-	jq '.neovim_colorscheme = "catppuccin-mocha"' "${cache_dir}/config.json" > /tmp/config.json
+	jq '.neovim_colorscheme = "sakura"' "${cache_dir}/config.json" > /tmp/config.json
 	mv /tmp/config.json "${cache_dir}/config.json"
 else
 	mode="light"
@@ -31,6 +31,7 @@ python "${generate_material_colors}" --path "${wallpaper}" \
     --scheme "${scheme}" --mode "${mode}" --transparency "${transparency}" > "${cache_dir}/material-colors.scss"
 
 "${HOME}/.config/hypr/scripts/color_generation/apply_colors.sh"
+python "${HOME}/.local/bin/hypr_config_gen.py"
 
 if [ "${darkmode}" = "true" ]; then
 	sed -i "s/black/white/g" "${waybar_config}"
@@ -44,10 +45,12 @@ if pgrep -x spotify > /dev/null ; then
 fi
 
 sleep 0.5
-pkill waybar
+# pkill waybar
+pgrep -x ags && pkill -x gjs 
 sleep 0.5
 
-waybar > /dev/null &
+#waybar > /dev/null &
+ags run &
 pkill -USR2 cava
 
 pywalfox update

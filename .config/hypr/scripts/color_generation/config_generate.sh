@@ -2,12 +2,13 @@
 
 save_dir="${HOME}/.config/swww"
 wall_dir="${HOME}/Pictures/wallpapers"
+wall_select="${HOME}/.config/rofi/wallselect.rasi"
 waybar_config="${HOME}/.config/waybar/config.jsonc"
 cache_dir="${HOME}/.cache/material-colors"
 swww_cache_dir="${save_dir}/.cache"
 generate_material_colors="${HOME}/.config/hypr/scripts/color_generation/generate_material_colors.py"
 
-wallpaper_location="$(ls "${wall_dir}" | rofi -dmenu -hover-select -me-select-entry '' -me-accept-entry- MousePrimary)"
+wallpaper_location=$(for a in "$wall_dir"/*; do echo -en "$(basename "$a")\0icon\x1f$a\n" ; done | rofi -dmenu -theme "$wall_select")
 
 
 config_gen() {
@@ -15,7 +16,7 @@ config_gen() {
 
   if [ "${darkmode}" = "true" ]; then
     mode="dark"
-	jq '.neovim_colorscheme = "catppuccin-mocha"' "${cache_dir}/config.json" > /tmp/config.json
+	jq '.neovim_colorscheme = "sakura"' "${cache_dir}/config.json" > /tmp/config.json
 	mv /tmp/config.json "${cache_dir}/config.json"
 
 	sed -i "s/black/white/g" "${waybar_config}"
@@ -41,6 +42,7 @@ config_gen() {
     --scheme "${scheme}" --mode "${mode}" --transparency "${transparency}" > "${cache_dir}/material-colors.scss"
 
 	"${HOME}/.config/hypr/scripts/color_generation/apply_colors.sh"
+	python "${HOME}/.local/bin/hypr_config_gen.py"
 }
 
 
@@ -70,8 +72,7 @@ wall() {
 		--transition-duration 1 --transition-pos bottom-right
 
 	pywalfox update
-	pywal-discord -t default 
-	cp -r ~/.config/Vencord/themes/pywal-discord-default.theme.css ~/.config/vesktop/themes
+	walcord
 	swaync-client -rs 
 
 	if pgrep -x spotify > /dev/null ; then
@@ -80,10 +81,12 @@ wall() {
 	fi
 
 	sleep 0.5
-	pkill waybar
+	#pkill waybar
+	pgrep -x ags && pkill -x gjs 
 	sleep 0.5
 
-	waybar > /dev/null &
+	#waybar > /dev/null &
+	ags run &
 	pkill -USR2 cava
 
 	sleep 0.5

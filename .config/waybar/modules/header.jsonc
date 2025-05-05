@@ -7,7 +7,7 @@
 	"layer": "top",
 	"position": "${w_position}",
 	"mod": "dock",
-	"height": 31,
+	"height": "${w_height}",
 	"spacing": 4,
 	"margin-top": "${m_top}",
 	"margin-bottom": "${m_bot}",
