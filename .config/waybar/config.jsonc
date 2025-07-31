@@ -39,7 +39,7 @@
 		"return-type": "json",
 		"exec": "~/.config/hypr/scripts/updates.sh",
 		"interval": 86400,
-		"on-click": "wezterm -e yay -Syu",
+		"on-click": "kitty bash -c 'yay -Syu'",
 		"tooltip": true
 	},
 	"hyprland/workspaces": {

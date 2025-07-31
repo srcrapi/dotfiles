@@ -8,7 +8,16 @@ cache_dir="${HOME}/.cache/material-colors"
 swww_cache_dir="${save_dir}/.cache"
 generate_material_colors="${HOME}/.config/hypr/scripts/color_generation/generate_material_colors.py"
 
-wallpaper_location=$(for a in "$wall_dir"/*; do echo -en "$(basename "$a")\0icon\x1f$a\n" ; done | rofi -dmenu -theme "$wall_select")
+
+case "$1" in
+	"")
+		wallpaper_location=$(for a in "$wall_dir"/*; do echo -en "$(basename "$a")\0icon\x1f$a\n" ; done | rofi -dmenu -theme "$wall_select")
+		echo "${wallpaper_location}"
+		;;
+	*)
+		wallpaper_location=$(basename "$1")
+		;;
+esac
 
 
 config_gen() {
@@ -36,7 +45,6 @@ config_gen() {
   else
     transparency="transparent"
   fi
-
 
   python "${generate_material_colors}" --path "${wall_dir}/${wallpaper_location}"\
     --scheme "${scheme}" --mode "${mode}" --transparency "${transparency}" > "${cache_dir}/material-colors.scss"
@@ -72,7 +80,6 @@ wall() {
 		--transition-duration 1 --transition-pos bottom-right
 
 	pywalfox update
-	walcord
 	swaync-client -rs 
 
 	if pgrep -x spotify > /dev/null ; then
@@ -80,13 +87,14 @@ wall() {
 		spicetify -q watch -s &
 	fi
 
-	sleep 0.5
+	#sleep 0.5
 	#pkill waybar
-	pgrep -x ags && pkill -x gjs 
-	sleep 0.5
+	#pgrep -x ags && pkill -x gjs 
+	#sleep 0.5
 
 	#waybar > /dev/null &
-	ags run &
+	#ags run &
+	goignis reload
 	pkill -USR2 cava
 
 	sleep 0.5

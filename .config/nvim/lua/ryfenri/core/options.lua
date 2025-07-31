@@ -15,6 +15,7 @@ opt.relativenumber = true
 opt.colorcolumn = "100"
 opt.splitright = true
 opt.splitbelow = true
+opt.guicursor = "n-v-i-c:block-Cursor"
 -- opt.list = true
 -- opt.listchars = { tab = "│ " }
 opt.conceallevel = 1

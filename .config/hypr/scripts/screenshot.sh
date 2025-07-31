@@ -1,11 +1,9 @@
-#!/usr/bin/env sh
-
+#!/usr/bin/env bash
 
 saveDir="${HOME}/Pictures/Screenshot"
 saveFile="$(date +'%y%m%d_%Hh%Mm%Ss_screenshot.png')"
 swpyDir="${HOME}/.config/swappy"
 temp_screenshot="/tmp/screenshot.png"
-
 
 mkdir -p $saveDir
 mkdir -p $swpyDir
@@ -20,7 +18,9 @@ case $1 in
 	m) # print focused monitor
 		grimblast copysave output $temp_screenshot && swappy -f $temp_screenshot ;;
 	*) # invalid option
-		print_error ;;
+		notify-send "Screenshot failed"
+		exit
+		;;
 esac
 
 rm "$temp_screenshot"

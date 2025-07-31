@@ -11,7 +11,7 @@ end
 
 local function setLineNumberColors()
 	vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#444550" })
-	vim.api.nvim_set_hl(0, "LineNr", { fg = "#f8bb71", bold = true })
+	vim.api.nvim_set_hl(0, "LineNr", { fg = "#e2c46d", bold = true })
 	vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#444550" })
 end
 

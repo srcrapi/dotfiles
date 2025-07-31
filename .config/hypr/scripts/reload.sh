@@ -44,14 +44,15 @@ if pgrep -x spotify > /dev/null ; then
 	spicetify -q watch -s &
 fi
 
-sleep 0.5
-# pkill waybar
-pgrep -x ags && pkill -x gjs 
-sleep 0.5
+#sleep 0.5
+#pkill waybar
+#pgrep -x ags && pkill -x gjs 
+#sleep 0.5
 
 #waybar > /dev/null &
-ags run &
+#ags run &
+goignis reload
 pkill -USR2 cava
 
 pywalfox update
-swaync-client -rs
+#swaync-client -rs

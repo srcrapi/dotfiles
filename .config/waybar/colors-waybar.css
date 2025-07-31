@@ -1,11 +1,11 @@
-@define-color foreground #f8bb71;
-@define-color background #18120c;
-@define-color backgroundGroup #302921;
+@define-color foreground #e2c46d;
+@define-color background #16130b;
+@define-color backgroundGroup #2d2a21;
 
-@define-color workspaceEmptyBg #d4c4b5;
-@define-color workspaceDefaultBg #dfc2a2;
-@define-color workspaceDefaultFg #251e17;
-@define-color workspaceActiveBg #f8bb71;
-@define-color workspaceActiveFg #472a00;
-@define-color workspaceHoverBg #fcddbd;
-@define-color borderColor #dfc2a2;
+@define-color workspaceEmptyBg #cfc6b4;
+@define-color workspaceDefaultBg #d4c5a1;
+@define-color workspaceDefaultFg #231f17;
+@define-color workspaceActiveBg #e2c46d;
+@define-color workspaceActiveFg #3c2f00;
+@define-color workspaceHoverBg #f1e1bb;
+@define-color borderColor #d4c5a1;

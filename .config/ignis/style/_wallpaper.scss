@@ -1,0 +1,48 @@
+@use "./global.scss" as *;
+
+.wallpapers {
+  background: $background;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  min-width: 990px;
+  min-height: 170px;
+}
+
+.wallpapers-scroll {
+  min-width: 990px;
+  min-height: 170px;
+}
+
+.wallpapers-container {
+  margin: 30px 30px;
+}
+
+.wallpaper-thumb {
+  border-radius: 1rem;
+}
+
+.wallpaper-thumb-btn {
+  padding: 10px;
+  margin: 0 5px;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.search-wallpaper-container {
+  border-radius: 2rem;
+  background: lighten($background, 5%);
+  min-width: 500px;
+  color: $onSecondaryContainer;
+  margin: 12px 0;
+}
+
+.search-wallpaper {
+  min-width: 500px;
+  background: transparent;
+  border-radius: inherit;
+  padding: 0.5rem;
+  font-size: 14px;
+}

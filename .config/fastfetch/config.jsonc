@@ -1,64 +1,77 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": null,
   "display": {
-    "separator": " : "
+    "separator": "  ",
+    "color": "#e5e1e9",
+    "constants": [
+      "\u001b[38;5;15m",
+      "\u001b[38;5;1m",
+      "\u001b[38;5;2m",
+      "\u001b[38;5;10m"
+    ]
   },
   "modules": [
-    "title",
-    "separator",
+    "break",
     {
-      "type": "os",
-      "key": " os    "
+      "type": "custom",
+      "key": "╭────────────────────────────────────╮"
     },
     {
       "type": "kernel",
-      "key": " kernel"
+      "key": "│ {$1}  kernel",
+      "format": "{$1} {release>22} │"
     },
     {
-      "type": "uptime",
-      "key": " uptime"
-    },
-    {
-      "type": "packages",
-      "key": "󰮯 pkgs  "
+      "type": "command",
+      "key": "│ {$2}  uptime",
+      "text": "uptime -p | cut -d ' ' -f 2-",
+      "format": "{$2} {>22} {$1}│"
     },
     {
       "type": "shell",
-      "key": " shell "
+      "key": "│ {$3}  shell ",
+      "format": "{$3} {pretty-name>22} {$1}│"
     },
     {
-      "type": "wm",
-      "key": " wm    "
+      "type": "command",
+      "key": "│ {$3}  mem   ",
+      "text": "free -m | awk 'NR==2{printf \"%.2f GiB / %.2f GiB\", $3/1024, $2/1024}'",
+      "format": "{$3} {>22} {$1}│"
     },
     {
-      "type": "terminal",
-      "key": " term  "
+      "type": "command",
+      "key": "│ {$3}󰾲  gpu   ",
+      "text": "glxinfo | grep 'OpenGL renderer' | cut -d ':' -f2- | sed 's/^ //'",
+      "format": "{$3}{>23} {$1}│"
     },
     {
-      "type": "cpu",
-      "key": " cpu   "
+      "type": "packages",
+      "key": "│ {$2}  pkgs  ",
+      "format": "{$2} {all>22} {$1}│"
     },
     {
-      "type": "gpu",
-      "key": " gpu   "
+      "type": "command",
+      "key": "│ {$2}  user  ",
+      "text": "echo $USER",
+      "format": "{$2} {>22} {$1}│"
     },
     {
-      "type": "memory",
-      "key": "󰍛 memory"
+      "type": "command",
+      "key": "│ {$3}  hname ",
+      "text": "hostnamectl hostname",
+      "format": "{$3} {>22} {$1}│"
     },
     {
-      "type": "swap",
-      "key": "󰓡 swap  "
+      "type": "os",
+      "key": "│ {$1}󰻀  distro",
+      "format": "{$1} {pretty-name>22} {$1}│"
     },
     {
-      "type": "disk",
-      "key": " disk  "
+      "type": "custom",
+      "key": "╰────────────────────────────────────╯"
     },
-    "break",
-    {
-      "type": "colors",
-      "paddingLeft": 2,
-      "symbol": "circle"
-    }
+    "break"
   ]
 }
+

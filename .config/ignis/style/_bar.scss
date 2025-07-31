@@ -1,0 +1,138 @@
+@use "./global.scss" as *;
+
+.bar {
+  background: $background;
+  padding: 4px;
+  min-width: 35px;
+}
+
+.bg-surface {
+  background: $background;
+}
+
+.bg-none {
+  background: transparent;
+}
+
+.os-icon {
+  color: $primary;
+}
+
+.workspaces {
+    border-radius: 1rem;
+    background: black;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.workspace {
+	background-color: $onSurfaceVariant;
+	border-radius: 1rem;
+    padding: 6px;
+	min-height: 1px;
+	transition: 0.3s;
+
+    &:hover {
+	  background-color: $onSecondaryContainer;
+    }
+
+    &.active {
+      background-color: $primary;
+	  min-height: 30px;
+
+      &:hover {
+        background-color: lighten($primary, 5%);
+      }
+    }
+}
+
+.powermenu-launch {
+  border-radius: 7px;
+  min-width: 7px;
+  color: $secondary;
+  transition: color 0.2s ease-in;
+
+  &:hover {
+    color: lighten($primary, 5%);
+  }
+}
+
+.powermenu-button {
+  &:hover {
+    background: lighten($surfaceContainer, 5%);
+  }
+  transition: 0.3s;
+  border-radius: 10rem;
+  min-width: 8rem;
+  min-height: 8rem;
+
+  &:focus {
+    &:hover {
+      background: lighten($background, 5%);
+    } 
+
+    color: $primary;
+  }
+}
+
+.powermenu-button-label {
+  margin-top: 0.5rem;
+  color: $secondary;
+}
+
+.powermenu-button-box {
+  margin: 0.5rem;
+}
+
+.powermenu-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.clock, .audio-container {
+  font-weight: 700;
+  color: $primary;
+}
+
+.audio-text {
+  color: $onSurfaceVariant;
+}
+
+.audio-slider-eventbox {
+  background: $background;
+  color: $onSurfaceVariant;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  min-width: 5px;
+  min-height: 200px;
+
+  &.expanded {
+    min-width: 75px;
+  }
+}
+
+.audio-slider-container {
+  margin-left: 15px;
+}
+
+.audio-slider-icon {
+  color: $primary;
+  margin-bottom: 10px;
+}
+
+.audio-slider trough {
+  min-height: 100px;
+  min-width: 0.7rem;
+  background-color: $onSurfaceVariant;
+  border-radius: 2rem;
+
+  highlight {
+    background-color: $secondary;
+  }
+
+  slider {
+    background-color: $primary;
+    min-height: 20px;
+    min-width: 20px;
+    border-radius: 1rem;
+  }
+}

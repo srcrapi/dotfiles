@@ -1,0 +1,147 @@
+#![enable(implicit_some)]
+#![enable(unwrap_newtypes)]
+#![enable(unwrap_variant_newtypes)]
+(
+    default_album_art_path: None,
+    show_song_table_header: false,
+    draw_borders: true,
+    browser_column_widths: [20, 38, 42],
+    text_color: "{{ $primary }}",
+    tab_bar: (
+        enabled: true,
+        active_style: (fg: "{{ $onPrimary }}", bg: "{{ $primaryFixedDim }}", modifiers: "Bold"),
+        inactive_style: (fg: "{{ $primaryFixed }}", modifiers: ""),
+    ),
+    highlighted_item_style: (fg: "{{ $inversePrimary }}", modifiers: "Bold"),
+    current_item_style: (fg: "{{ $inversePrimary }}", bg: "{{ $primaryFixed }}", modifiers: "Bold"),
+    borders_style: (fg: "{{ $primaryFixedDim }}", modifiers: "Bold"),
+    highlight_border_style: (fg: "{{ $primaryFixedDim }}"),
+    symbols: (song: "󰝚 ", dir: " ", marker: "· ", ellipsis: "..."),
+    progress_bar: (
+        symbols: ["", "", "⭘", " ", " "],
+        track_style: (fg: "{{ $primaryFixedDim }}"),
+        elapsed_style: (fg: "{{ $secondary }}"),
+        thumb_style: (fg: "{{ $secondary }}"),
+    ),
+    scrollbar: (
+        symbols: ["", "", "", ""],
+        track_style: (fg: "{{ $primaryContainer }}"),
+        ends_style: (fg: "{{ $primaryContainer }}"),
+        thumb_style: (fg: "{{ $primaryContainer }}"),
+    ),
+    song_table_format: [
+        (
+            prop: (kind: Property(Title), style: (fg: "{{ $inversePrimary }}"),
+                highlighted_item_style: (fg: "{{ $secondary }}", modifiers: "Bold"),
+                default: (kind: Property(Filename), style: (fg: "{{ $secondary }}"),)
+            ),
+            width: "70%",
+        ),
+        (
+            prop: (kind: Property(Album), style: (fg: "{{ $primary }}"),
+                default: (kind: Text("Unknown Album"), style: (fg: "{{ $error }}"))
+            ),
+            width: "30%",
+        ),
+    ],
+    layout: Split(
+        direction: Vertical,
+        panes: [
+            (
+                size: "4",
+                pane: Split(
+                    direction: Horizontal,
+                    panes: [
+                        (
+                            size: "100%",
+                            pane: Split(
+                                direction: Vertical,
+                                panes: [
+                                    (
+                                        size: "4",
+                                        borders: "ALL",
+                                        pane: Pane(Header),
+                                    ),
+                                ]
+                            )
+                        ),
+                    ]
+                ),
+            ),
+            (
+                size: "100%",
+                pane: Split(
+                    direction: Horizontal,
+                    panes: [
+                        (
+                            size: "100%",
+                            borders: "NONE",
+                            pane: Pane(TabContent),
+                        ),
+                    ]
+                ),
+            ),
+            (
+                size: "3",
+                borders: "TOP | BOTTOM",
+                pane: Pane(ProgressBar),
+            ),
+        ],
+    ),
+    header: (
+        rows: [
+            (
+                left: [
+                    (kind: Property(Status(StateV2(playing_label: " ", paused_label: "❚❚", stopped_label: "❚❚"))), style: (fg: "{{ $inversePrimary }}", modifiers: "Bold")),
+                ],
+                center: [
+                    (kind: Property(Song(Title)), style: (fg: "{{ $primaryFixedDim }}",modifiers: "Bold"),
+                        default: (kind: Property(Song(Filename)), style: (fg: "{{ $primary }}",modifiers: "Bold"))
+                    )
+                ],
+                right: [
+                    (kind: Text("Vol: "), style: (fg: "{{ $primary }}", modifiers: "Bold")),
+                    (kind: Property(Status(Volume)), style: (fg: "{{ $primary }}", modifiers: "Bold")),
+                    (kind: Text("% "), style: (fg: "{{ $primary }}", modifiers: "Bold"))
+                ]
+            ),
+            (
+                left: [
+                    (kind: Property(Status(Elapsed)),style: (fg: "{{ $primary }}")),
+                    (kind: Text("/"),style: (fg: "{{ $onSecondaryContainer }}")),
+                    (kind: Property(Status(Duration)),style: (fg: "{{ $primary }}")),
+                ],
+                center: [
+                    (kind: Property(Song(Artist)), style: (fg: "{{ $inversePrimary }}", modifiers: "Bold"),
+                        default: (kind: Text("Unknown Artist"), style: (fg: "{{ $error }}", modifiers: "Bold"))
+                    ),
+                ],
+                right: [
+                    (
+                        kind: Property(Widget(States(
+                            active_style: (fg: "{{ $inversePrimary }}", modifiers: "Bold"),
+                            separator_style: (fg: "{{ $onSecondaryContainer }}")))
+                        ),
+                        style: (fg: "{{ $primary }}")
+                    ),
+                ]
+            ),
+        ],
+    ),
+    browser_song_format: [
+        (
+            kind: Group([
+                (kind: Property(Track)),
+                (kind: Text(" ")),
+            ])
+        ),
+        (
+            kind: Group([
+                (kind: Property(Artist)),
+                (kind: Text(" - ")),
+                (kind: Property(Title)),
+            ]),
+            default: (kind: Property(Filename))
+        ),
+    ],
+)

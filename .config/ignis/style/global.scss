@@ -1,0 +1,68 @@
+@use "../../../.cache/material-colors/material-colors.scss" as material;
+
+$darkmode: material.$darkmode;
+$scheme: material.$scheme;
+$opaque: material.$opaque;
+$foreground: material.$primaryFixedDim;
+$primary_paletteKeyColor: material.$primary_paletteKeyColor;
+$secondary_paletteKeyColor: material.$secondary_paletteKeyColor;
+$tertiary_paletteKeyColor: material.$tertiary_paletteKeyColor;
+$neutral_paletteKeyColor: material.$neutral_paletteKeyColor;
+$neutral_variant_paletteKeyColor: material.$neutral_variant_paletteKeyColor;
+$background: material.$background;
+$onBackground: material.$onBackground;
+$surface: material.$surface;
+$surfaceDim: material.$surfaceDim;
+$surfaceBright: material.$surfaceBright;
+$surfaceContainerLowest: material.$surfaceContainerLowest;
+$surfaceContainerLow: material.$surfaceContainerLow;
+$surfaceContainer: material.$surfaceContainer;
+$surfaceContainerHigh: material.$surfaceContainerHigh;
+$surfaceContainerHighest: material.$surfaceContainerHighest;
+$onSurface: material.$onSurface;
+$surfaceVariant: material.$surfaceVariant;
+$onSurfaceVariant: material.$onSurfaceVariant;
+$inverseSurface: material.$inverseSurface;
+$inverseOnSurface: material.$inverseOnSurface;
+$outline: material.$outline;
+$outlineVariant: material.$outlineVariant;
+$shadow: material.$shadow;
+$scrim: material.$scrim;
+$surfaceTint: material.$surfaceTint;
+$primary: material.$primary;
+$onPrimary: material.$onPrimary;
+$primaryContainer: material.$primaryContainer;
+$onPrimaryContainer: material.$onPrimaryContainer;
+$inversePrimary: material.$inversePrimary;
+$secondary: material.$secondary;
+$onSecondary: material.$onSecondary;
+$secondaryContainer: material.$secondaryContainer;
+$onSecondaryContainer: material.$onSecondaryContainer;
+$tertiary: material.$tertiary;
+$onTertiary: material.$onTertiary;
+$tertiaryContainer: material.$tertiaryContainer;
+$onTertiaryContainer: material.$onTertiaryContainer;
+$error: material.$error;
+$onError: material.$onError;
+$errorContainer: material.$errorContainer;
+$onErrorContainer: material.$onErrorContainer;
+$primaryFixed: material.$primaryFixed;
+$onPrimaryFixed: material.$onPrimaryFixed;
+$onPrimaryFixedVariant: material.$onPrimaryFixedVariant;
+$secondaryFixed: material.$secondaryFixed;
+$secondaryFixedDim: material.$secondaryFixedDim;
+$onSecondaryFixed: material.$onSecondaryFixed;
+$onSecondaryFixedVariant: material.$onSecondaryFixedVariant;
+$tertiaryFixed: material.$tertiaryFixed;
+$tertiaryFixedDim: material.$tertiaryFixedDim;
+$onTertiaryFixed: material.$onTertiaryFixed;
+$onTertiaryFixedVariant: material.$onTertiaryFixedVariant;
+
+* {
+  font-family: 'JetBrainsMono Nerd Font', monospace;
+}
+
+.unset {
+  all: unset
+}
+

@@ -15,17 +15,16 @@ imagemagick
 swww 
 tmux
 rofi-wayland
-zen-browser-optimized-bin
+zen-browser-bin
 neovim 
-kitty
-lazygit 
+foot
 eza
-zsh
-oh-my-zsh-git
+fish
+#zsh
+#oh-my-zsh-git
 starship
 zoxide
 fzf
-kitty
 mpv
 qt5-quickcontrols
 qt5-quickcontrols2
@@ -42,7 +41,18 @@ wlogout
 slurp
 swappy
 jq
-polkit-gnome
+#polkit-gnome
 obsidian
 steam
 udiskie
+cava
+networkmanager
+brightnessctl
+
+# Bluetooth
+bluez
+bluez-utils
+blueman
+
+# Screen Capture
+wf-recorder
